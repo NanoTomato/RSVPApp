@@ -1,0 +1,1 @@
+C:\workspace\vs2013\RSVPApp\RSVPApp\RSVPApp.csproj;neutral

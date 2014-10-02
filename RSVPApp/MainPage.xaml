@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="RSVPApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RSVPApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{StaticResource BackgroundSolidBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <local:RSVPControl VerticalAlignment="Top" x:Name="readControl"
+                           HorizontalAlignment="Center" Width="400" Height="120"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <AppBarButton Grid.Column="0" Label="Stop" Icon="Stop"/>
+            <AppBarButton Grid.Column="1" Label="Play" HorizontalAlignment="Center" Icon="Play"/>
+            <AppBarButton Grid.Column="2" Label="Pause" HorizontalAlignment="Right" Icon="Pause"/>
+        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <TextBlock Text="Speed" VerticalAlignment="Center"
+                       FontSize="20"/>
+            <ComboBox HorizontalAlignment="Stretch"/>
+        </StackPanel>
+    </Grid>
+</Page>
