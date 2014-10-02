@@ -53,7 +53,9 @@
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Label" />
       <RootProperty Name="Icon" />
+      <RootProperty Name="Name" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="RSVPApp.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">

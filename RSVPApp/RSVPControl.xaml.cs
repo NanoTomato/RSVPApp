@@ -70,7 +70,6 @@ namespace RSVPApp
 
         public static void Start()
         {
-            GoToBegining();
             instance.timer.Start();
         }
 

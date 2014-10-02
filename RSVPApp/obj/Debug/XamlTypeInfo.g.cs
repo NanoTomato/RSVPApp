@@ -566,3 +566,4 @@ namespace RSVPApp.RSVPApp_XamlTypeInfo
 }
 
 
+

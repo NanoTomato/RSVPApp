@@ -22,9 +22,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <AppBarButton Grid.Column="0" Label="Stop" Icon="Stop"/>
-            <AppBarButton Grid.Column="1" Label="Play" HorizontalAlignment="Center" Icon="Play"/>
-            <AppBarButton Grid.Column="2" Label="Pause" HorizontalAlignment="Right" Icon="Pause"/>
+            <AppBarButton Grid.Column="0" Label="Stop" Icon="Stop" Click="StopTextOutput"/>
+            <AppBarButton Grid.Column="1" Label="Play" HorizontalAlignment="Center" Icon="Play" Click="StartTextOutput" Name="PlayButton"/>
+            <AppBarButton Grid.Column="2" Label="Pause" HorizontalAlignment="Right" Icon="Pause" Click="PauseTextOutput"/>
         </Grid>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Stretch">
             <TextBlock Text="Speed" VerticalAlignment="Center"

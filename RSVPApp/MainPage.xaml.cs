@@ -40,6 +40,7 @@ namespace RSVPApp
 
             Controller.SetControl(readControl);
             Controller.SetContainer(new TextContainer(text));
+            Controller.SetInterval(300);
         }
 
         /// <summary>
@@ -57,5 +58,24 @@ namespace RSVPApp
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
         }
+
+        private void StopTextOutput(object sender, RoutedEventArgs e)
+        {
+            Controller.Stop();
+            Controller.GoToBegining();
+        }
+
+        private void StartTextOutput(object sender, RoutedEventArgs e)
+        {
+            Controller.Start();
+        }
+
+        private void PauseTextOutput(object sender, RoutedEventArgs e)
+        {
+            Controller.Stop();
+            PlayButton.Label = "Resume";
+        }
+
+
     }
 }
