@@ -43,55 +43,61 @@ namespace RSVPApp
 
     class Controller
     {
-        private Controller()
+        public Controller()
         {
             timer.Tick += showNewWord;
         }
 
-        public static void SetContainer(TextContainer container)
+        public void SetContainer(TextContainer container)
         {
-            instance.container = container;
+            this.container = container;
         }
 
-        public static void SetControl(RSVPControl control)
+        public void SetControl(RSVPControl control)
         {
-            instance.control = control;
+            this.control = control;
         }
 
-        public static void SetInterval(int interval)
+        public void SetInterval(int interval)
         {
-            instance.timer.Interval = new TimeSpan(0, 0, 0, 0, interval);
+            this.timer.Interval = new TimeSpan(0, 0, 0, 0, interval);
         }
 
-        public static void GoToBegining()
+        public void GoToBegining()
         {
-            instance.container.ResetPointer();
+            container.ResetPointer();
+            control.CurrentWord = "";
         }
 
-        public static void Start()
+        public void Start()
         {
-            instance.timer.Start();
+            timer.Start();
         }
 
-        public static void Stop()
+        public void Stop()
         {
-            instance.timer.Stop();
+            timer.Stop();
         }
 
-        private void showNewWord(object sender, object e)
+        public void showNewWord(object sender, object e)
         {
-            control.CurrentWord = container.emitWord() ?? "";
-            if (control.CurrentWord == "")
+            currentWord = container.emitWord() ?? "";
+            switch (currentWord)
             {
-                timer.Stop();
-                container.ResetPointer();
+                case "":
+                    timer.Stop();
+                    GoToBegining();
+                    break;
+                default:
+                    control.CurrentWord = currentWord;
+                    break;
             }
         }
 
         private DispatcherTimer timer = new DispatcherTimer();
         private TextContainer container;
         private RSVPControl control;
-        private static Controller instance = new Controller();
+        String currentWord;
     } 
 
     class TextContainer

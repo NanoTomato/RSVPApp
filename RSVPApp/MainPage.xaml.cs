@@ -38,9 +38,9 @@ namespace RSVPApp
             text.Add("for");
             text.Add("reading");
 
-            Controller.SetControl(readControl);
-            Controller.SetContainer(new TextContainer(text));
-            Controller.SetInterval(300);
+            controller.SetControl(readControl);
+            controller.SetContainer(new TextContainer(text));
+            controller.SetInterval(300);
         }
 
         /// <summary>
@@ -61,21 +61,22 @@ namespace RSVPApp
 
         private void StopTextOutput(object sender, RoutedEventArgs e)
         {
-            Controller.Stop();
-            Controller.GoToBegining();
+            controller.Stop();
+            controller.GoToBegining();
+            PlayButton.Label = "Play";
         }
 
         private void StartTextOutput(object sender, RoutedEventArgs e)
         {
-            Controller.Start();
+            controller.Start();
         }
 
         private void PauseTextOutput(object sender, RoutedEventArgs e)
         {
-            Controller.Stop();
+            controller.Stop();
             PlayButton.Label = "Resume";
         }
 
-
+        private Controller controller = new Controller();
     }
 }
