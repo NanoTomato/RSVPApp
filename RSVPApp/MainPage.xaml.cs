@@ -36,11 +36,14 @@ namespace RSVPApp
             text.Add("new");
             text.Add("application");
             text.Add("for");
+            text.Add("fast");
             text.Add("reading");
+            text.Add(".");
+            text.Add("\n");
 
-            controller.SetControl(readControl);
-            controller.SetContainer(new TextContainer(text));
-            controller.SetInterval(300);
+            controller.Control = readControl;
+            controller.Container = new TextContainer(text);
+            controller.Interval = 200;
         }
 
         /// <summary>
@@ -78,5 +81,25 @@ namespace RSVPApp
         }
 
         private Controller controller = new Controller();
+
+        private void GoBackOneParagraph(object sender, RoutedEventArgs e)
+        {
+            controller.GoToPreviousParagraph();
+        }
+
+        private void GoBackOneSentence(object sender, RoutedEventArgs e)
+        {
+            controller.GoToPreviousSentence();
+        }
+
+        private void GoForwardOneSentence(object sender, RoutedEventArgs e)
+        {
+            controller.GoToNextSentence();
+        }
+
+        private void GoForwardOneParagraph(object sender, RoutedEventArgs e)
+        {
+            controller.GoToNextParagraph();
+        }       
     }
 }
